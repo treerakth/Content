@@ -1,19 +1,17 @@
-** จะแบ่งเป็น 2 รูปแบบ คือ **
-
-1.การส่งภาพเข้าสู่ Teams โดยการแปลงภาพเป็น Base64 
-
-2.การส่งภาพเข้าสู่ Teams โดยใช้ Google Drive
-
+# อธิบายเกี่ยวกับการสร้าง Adaptive Cards และส่งเข้า Microsoft Teams
+## จะแบ่งเป็น 2 รูปแบบ คือ
+    1.การส่งภาพเข้าสู่ Teams โดยการแปลงภาพเป็น Base64 
+    2.การส่งภาพเข้าสู่ Teams โดยใช้ Google Drive
 โดยทั้งสองแบบมี Requirement ที่แตกต่างกัน โดยจะขอเริ่มไปทีละขั้นตอน
+***
+## Base64
 
-**Base64**
-
-Requirement ที่จำเป็น  
+#### Requirement ที่จำเป็น  
 - Incoming Webhook Microsoft Teams URL 
 
-**Google Drive**
+## Google Drive
 
-Requirement ที่จำเป็น
+#### Requirement ที่จำเป็น
 - Incoming Webhook Microsoft Teams URL 
 - Service Account ( JSON File)
 - SCOPES
@@ -23,9 +21,9 @@ Requirement ที่จำเป็น
 
 
 
-**Install Library**
+## Install Library
 
-Python
+### Python
 
 ├── google-api-python-client==2.154.0
 
@@ -35,14 +33,14 @@ Python
 
 └── google-auth-oauthlib==1.2.1
 
-command  : 'pip install requests google-api-python-client google-auth google-auth-oauthlib'
+command  : `pip install requests google-api-python-client google-auth google-auth-oauthlib`
 
 
-Node.js
+### Node.js
 
 ├── axios@1.7.8
 
 └── googleapis@144.0.0
 
-command : 'npm install axios@1.7.8 googleapis@144.0.0'
+command : `npm install axios@1.7.8 googleapis@144.0.0`
 
