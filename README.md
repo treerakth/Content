@@ -7,13 +7,13 @@
 ## Base64
 
 #### Requirement ที่จำเป็น  
-- Incoming Webhook Microsoft Teams URL 
+- Incoming Webhook Microsoft Teams URL [Incoming Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=newteams%2Cdotnet)
 
 ## Google Drive
 
 #### Requirement ที่จำเป็น
-- Incoming Webhook Microsoft Teams URL 
-- Service Account ( JSON File)
+- Incoming Webhook Microsoft Teams URL [Incoming Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=newteams%2Cdotnet)
+- Service Account ( JSON File) [Google Cloud](https://console.cloud.google.com/)
 - SCOPES
 - Folder ID ( Folder ในการอัพโหลดภาพ )
 - Permission in Folder ( การเพิ่ม Permission ภายใน Folder โดยการกำหนดสิทธิ์ให้ Client email ภายใน Service Account ไฟล์ มีสิทธิ์ ในการอัพโหลด หรือ ลบ ไฟล์ภาพได้ )
