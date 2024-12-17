@@ -2,9 +2,16 @@ import requests
 import json
 import base64
 from datetime import datetime
+from dotenv import load_dotenv  # โหลด dotenv
+import os
 
-# URL ของ Webhook จาก Microsoft Teams
-WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/YOUR_WEB_HOOK"
+# โหลดตัวแปรจากไฟล์ .env
+load_dotenv()
+
+# ดึงค่า environment variables
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
+IMAGE_PATH = os.getenv("IMAGE_PATH")
+IMAGE_DETAIL = os.getenv("IMAGE_DETAIL")
 
 def encode_image_to_base64(file_path):
     """
@@ -79,16 +86,13 @@ def send_message_to_teams(message, base64_image, image_detail):
         print(f"Failed to send message: {response.status_code}, {response.text}")
 
 if __name__ == '__main__':
-    # กำหนด Path ของไฟล์ในเครื่อง
-    local_file_path = r'YOUR_PATH_IMAGE'  # แก้ไข Path ให้ตรงกับไฟล์จริง
-
     # แปลงภาพเป็น Base64
-    base64_image = encode_image_to_base64(local_file_path)
+    base64_image = encode_image_to_base64(IMAGE_PATH)
 
     if base64_image:
         # ส่งข้อความและภาพไปยัง Microsoft Teams
         send_message_to_teams(
             message="Alert!",
             base64_image=base64_image,
-            image_detail="ทดสอบส่งภาพจาก Python"
+            image_detail=IMAGE_DETAIL
         )
