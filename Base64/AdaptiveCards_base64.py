@@ -4,7 +4,7 @@ import base64
 from datetime import datetime
 
 # URL ของ Webhook จาก Microsoft Teams
-WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/efb3b6cb-58c9-4b21-a4e3-c34adfa86609@bf1eb3f8-19d2-409d-b0c5-4e80c943fd52/IncomingWebhook/9bf57115d7a3478d83155dfb091b57f7/395194ba-631a-4986-8e13-827d36d58e85/V2p9-r_PPqfG3_boA8VcG_PadiaucvOh73hF5LvKVRVCQ1"
+WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/YOUR_WEB_HOOK"
 
 def encode_image_to_base64(file_path):
     """
@@ -80,7 +80,7 @@ def send_message_to_teams(message, base64_image, image_detail):
 
 if __name__ == '__main__':
     # กำหนด Path ของไฟล์ในเครื่อง
-    local_file_path = r'core.png'  # แก้ไข Path ให้ตรงกับไฟล์จริง
+    local_file_path = r'YOUR_PATH_IMAGE'  # แก้ไข Path ให้ตรงกับไฟล์จริง
 
     # แปลงภาพเป็น Base64
     base64_image = encode_image_to_base64(local_file_path)
