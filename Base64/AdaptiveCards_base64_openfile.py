@@ -3,9 +3,14 @@ import json
 import base64
 from datetime import datetime
 from tkinter import Tk, filedialog
+from dotenv import load_dotenv
+import os
 
-# URL ของ Webhook จาก Microsoft Teams
-WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/YOUR_WEB_HOOK/"
+# โหลดค่าในไฟล์ .env
+load_dotenv()
+
+# ดึงค่า Webhook URL จาก .env
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
 def encode_image_to_base64(file_path):
     """
@@ -80,6 +85,11 @@ def send_message_to_teams(message, base64_image, image_detail):
         print(f"Failed to send message: {response.status_code}, {response.text}")
 
 if __name__ == '__main__':
+    # ตรวจสอบว่า WEBHOOK_URL ถูกตั้งค่าหรือไม่
+    if not WEBHOOK_URL:
+        print("Error: WEBHOOK_URL is not set in the .env file.")
+        exit(1)
+
     # เปิดหน้าต่างเลือกไฟล์
     root = Tk()
     root.withdraw()  # ซ่อนหน้าต่างหลักของ Tkinter
