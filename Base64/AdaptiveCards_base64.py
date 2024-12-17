@@ -11,6 +11,7 @@ load_dotenv()
 # ดึงค่า environment variables
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 IMAGE_PATH = os.getenv("IMAGE_PATH")
+HEADER_MESSAGE = os.getenv("HEADER_MESSAGE")
 IMAGE_DETAIL = os.getenv("IMAGE_DETAIL")
 
 def encode_image_to_base64(file_path):
@@ -92,7 +93,7 @@ if __name__ == '__main__':
     if base64_image:
         # ส่งข้อความและภาพไปยัง Microsoft Teams
         send_message_to_teams(
-            message="Alert!",
+            message= HEADER_MESSAGE,
             base64_image=base64_image,
             image_detail=IMAGE_DETAIL
         )
