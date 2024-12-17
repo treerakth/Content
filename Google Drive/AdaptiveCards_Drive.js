@@ -3,13 +3,13 @@ const axios = require("axios");
 const fs = require("fs");
 
 // Path ไปยังไฟล์ Service Account JSON
-const SERVICE_ACCOUNT_FILE = "image-api-443004-b34f0b1100f7.json";
+const SERVICE_ACCOUNT_FILE = "YOUR_PATH_SERVCE_FILE";
 
 // SCOPES: ใช้สิทธิ์ในการจัดการไฟล์ใน Google Drive
 const SCOPES = ["https://www.googleapis.com/auth/drive"];
 
 // URL ของ Webhook จาก Microsoft Teams
-const WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/efb3b6cb-58c9-4b21-a4e3-c34adfa86609@bf1eb3f8-19d2-409d-b0c5-4e80c943fd52/IncomingWebhook/9bf57115d7a3478d83155dfb091b57f7/395194ba-631a-4986-8e13-827d36d58e85/V2p9-r_PPqfG3_boA8VcG_PadiaucvOh73hF5LvKVRVCQ1";
+const WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/YOUR_WEB_HOOK/";
 
 async function uploadFileToDrive(filePath, fileName, folderId = null) {
     try {
@@ -106,9 +106,9 @@ async function sendMessageToTeams(fileLink, fileId, imageUrl, imageDetail) {
 }
 
 (async () => {
-    const localFilePath = "core.png"; // Path ของไฟล์ในเครื่อง
-    const driveFileName = "image01.png"; // ชื่อไฟล์ที่ต้องการเก็บใน Google Drive
-    const folderId = "1INay5KRAHFsRGf4PhHtYqA6rOYlVvKwF"; // ใส่ Folder ID หากต้องการอัปโหลดในโฟลเดอร์เฉพาะ
+    const localFilePath = "YOUR_PATH_IMAGE"; // Path ของไฟล์ในเครื่อง
+    const driveFileName = "YOUR_NAME_IMAGE_IN_DRIVE.png"; // ชื่อไฟล์ที่ต้องการเก็บใน Google Drive
+    const folderId = "FOLDER_IN_DRIVE_ID"; // ใส่ Folder ID หากต้องการอัปโหลดในโฟลเดอร์เฉพาะ
 
     // อัปโหลดไฟล์ไปยัง Google Drive
     const { fileLink, fileId } = await uploadFileToDrive(localFilePath, driveFileName, folderId);
