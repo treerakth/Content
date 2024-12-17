@@ -1,8 +1,11 @@
+require("dotenv").config(); // โหลด dotenv
 const axios = require("axios");
 const fs = require("fs");
 
-// URL ของ Webhook จาก Microsoft Teams
-const WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/YOUR_WEB_HOOK";
+// โหลดค่าต่าง ๆ จากไฟล์ .env
+const WEBHOOK_URL = process.env.WEBHOOK_URL;
+const IMAGE_PATH = process.env.IMAGE_PATH;
+const IMAGE_DETAIL = process.env.IMAGE_DETAIL;
 
 async function sendMessageToTeamsWithBase64(imagePath, imageDetail) {
     try {
@@ -63,9 +66,6 @@ async function sendMessageToTeamsWithBase64(imagePath, imageDetail) {
 }
 
 (async () => {
-    const localFilePath = "YOUR_PATH_IMAGE"; // Path ของไฟล์ในเครื่อง
-    const imageDetail = "ทดสอบส่งภาพแบบ Base64 จาก Node.js"; // รายละเอียดของภาพ
-
-    // ส่งข้อความพร้อมภาพแบบ Base64 ไปยัง Microsoft Teams
-    await sendMessageToTeamsWithBase64(localFilePath, imageDetail);
+    // ใช้ค่าจาก .env
+    await sendMessageToTeamsWithBase64(IMAGE_PATH, IMAGE_DETAIL);
 })();
