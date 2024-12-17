@@ -31,16 +31,20 @@
 
 ├── google-auth==2.28.1
 
+├── python-dotenv==1.0.1
+
 └── google-auth-oauthlib==1.2.1
 
-command  : `pip install requests google-api-python-client google-auth google-auth-oauthlib`
+command  : `pip install requests google-api-python-client google-auth google-auth-oauthlib python-dotenv`
 
 
 ### Node.js
 
 ├── axios@1.7.8
 
+├── dotenv@16.4.7
+
 └── googleapis@144.0.0
 
-command : `npm install axios@1.7.8 googleapis@144.0.0`
+command : `npm install axios@1.7.8 googleapis@144.0.0 dotenv@16.4.7`
 
