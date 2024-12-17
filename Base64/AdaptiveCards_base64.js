@@ -2,7 +2,7 @@ const axios = require("axios");
 const fs = require("fs");
 
 // URL ของ Webhook จาก Microsoft Teams
-const WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/YOU_WEB_HOOK";
+const WEBHOOK_URL = "https://nu365.webhook.office.com/webhookb2/YOUR_WEB_HOOK";
 
 async function sendMessageToTeamsWithBase64(imagePath, imageDetail) {
     try {
@@ -63,7 +63,7 @@ async function sendMessageToTeamsWithBase64(imagePath, imageDetail) {
 }
 
 (async () => {
-    const localFilePath = "YOU_PATH_IMAGE"; // Path ของไฟล์ในเครื่อง
+    const localFilePath = "YOUR_PATH_IMAGE"; // Path ของไฟล์ในเครื่อง
     const imageDetail = "ทดสอบส่งภาพแบบ Base64 จาก Node.js"; // รายละเอียดของภาพ
 
     // ส่งข้อความพร้อมภาพแบบ Base64 ไปยัง Microsoft Teams
