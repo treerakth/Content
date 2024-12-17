@@ -1,4 +1,4 @@
-require("dotenv").config(); // โหลด dotenv
+require("dotenv").config(); // โหลด dotenv .env
 const axios = require("axios");
 const fs = require("fs");
 
@@ -6,8 +6,9 @@ const fs = require("fs");
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
 const IMAGE_PATH = process.env.IMAGE_PATH;
 const IMAGE_DETAIL = process.env.IMAGE_DETAIL;
+const HEADER_MESSAGE = process.env.HEADER_MESSAGE;
 
-async function sendMessageToTeamsWithBase64(imagePath, imageDetail) {
+async function sendMessageToTeamsWithBase64(imagePath, imageDetail, HeaderMessage) {
     try {
         // อ่านไฟล์ภาพและแปลงเป็น Base64
         const imageData = fs.readFileSync(imagePath).toString("base64");
@@ -24,7 +25,7 @@ async function sendMessageToTeamsWithBase64(imagePath, imageDetail) {
                         body: [
                             {
                                 type: "TextBlock",
-                                text: "Alert!",
+                                text: `${HeaderMessage}`,
                                 size: "Medium",
                                 weight: "Bolder",
                             },
@@ -67,5 +68,5 @@ async function sendMessageToTeamsWithBase64(imagePath, imageDetail) {
 
 (async () => {
     // ใช้ค่าจาก .env
-    await sendMessageToTeamsWithBase64(IMAGE_PATH, IMAGE_DETAIL);
+    await sendMessageToTeamsWithBase64(IMAGE_PATH, IMAGE_DETAIL, HEADER_MESSAGE);
 })();
