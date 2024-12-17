@@ -51,7 +51,7 @@ def send_message_to_teams(message, base64_image, image_detail):
                     "body": [
                         {
                             "type": "TextBlock",
-                            "text": "Alert!",
+                            "text": message,
                             "size": "Medium",
                             "weight": "Bolder"
                         },
